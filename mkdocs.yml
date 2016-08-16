@@ -1,4 +1,4 @@
-site_name: MkDocs Basic theme
-theme_dir: basic_theme
+site_name: MkDocs MOOSE Theme
+theme_dir: moose_docs
 
-repo_url: https://github.com/d0ugal/mkdocs-basic-theme
+repo_url: https://github.com/milljm/mkdocs-basic-theme

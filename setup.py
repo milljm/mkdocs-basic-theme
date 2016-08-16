@@ -4,18 +4,18 @@ VERSION = '1.0.1'
 
 
 setup(
-    name="mkdocs-basic-theme",
+    name="mkdocs-moosedocs",
     version=VERSION,
     url='https://github.com/mkdocs/mkdocs-basic-theme',
-    license='BSD',
-    description='Minimal theme for MkDocs',
+    license='LGPL',
+    description='MOOSE Theme',
     author='Dougal Matthews',
-    author_email='dougal@dougalmatthews.com.com',
+    author_email='m.jason.miller@gmail.com.com',
     packages=find_packages(),
     include_package_data=True,
     entry_points={
         'mkdocs.themes': [
-            'basictheme = basic_theme',
+            'moosedocs = moose_docs',
         ]
     },
     zip_safe=False
