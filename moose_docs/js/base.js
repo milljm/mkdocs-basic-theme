@@ -64,6 +64,7 @@ $("li.disabled a").click(function() {
 var themes = {
     "default": "//mooseframework.org/source_packages/bootswatch/default/bootstrap-custom.min.css",
     "dorkmode": "//mooseframework.org/source_packages/bootswatch/moosedocs/bootstrap-custom.min.css",
+    "readthedocs": "//mooseframework.org/source_packages/bootswatch/readthedocs/readthedocs.css",
     "cosmo" : "//mooseframework.org/source_packages/bootswatch/cosmo/bootstrap.min.css",
     "cyborg" : "//mooseframework.org/source_packages/bootswatch/cyborg/bootstrap.min.css",
     "flatly" : "//mooseframework.org/source_packages/bootswatch/flatly/bootstrap.min.css",
