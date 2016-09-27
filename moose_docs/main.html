@@ -1,10 +1,77 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 
-{#
-The entry point for the MkDocs Theme.
- 
-Any theme customisations should override this file to redefine blocks defined in
-the various templates. The custom theme should only need to define a main.html
-which `{% extends "base.html" %}` and defines various blocks which will replace
-the blocks defined in base.html and its included child templates.
-#}
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if page_description %}<meta name="description" content="{{ page_description }}">{% endif %}
+    {% if site_author %}<meta name="author" content="{{ site_author }}">{% endif %}
+    {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+    {% if favicon %}<link rel="shortcut icon" href="{{ favicon }}">
+    {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
+    
+    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ base_url }}/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="{{ base_url }}/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="{{ base_url }}/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="{{ base_url }}/css/component.css" />
+    <script src="{{ base_url }}/js/modernizr.custom.js"></script>
+
+    
+    {% if google_analytics %}
+    {% endif %}
+  </head>
+  
+  <body>
+    <a id="trigger" href="#"><div class="activate_bar" style="width: 40px; min-height: 100%; display: inline-block; float:left;"></div></a>
+    <div class="container" style="margin-left: 10px;">
+      <div id="mp-pusher" class="mp-pusher">
+	<nav id="mp-menu" class="mp-menu">
+	  <div class="mp-level">
+	    <h2 class="icon icon-world">{{ site_name }}</h2>
+	    <ul>
+	    {% for nav_item in nav %}
+	      {% if nav_item.children %}
+	        {% for nav_item in nav_item.children %}
+	          <li class="icon icon-arrow-left">
+                    <a href="#">
+		      {{ nav_item.title }}
+		    </a>
+		  <li>
+	        {% endfor %}
+	      {% else %}
+	         <li>
+		   <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+		 </li>
+	      {% endif %}
+	    {% endfor %}
+	    </ul>
+	  </div>  
+	</nav>
+	<div class="scroller">
+	  <div class="scroller-inner">
+            {{ content }}
+	    <footer class="col-md-12">
+	      <hr>
+	      {% if copyright %}
+	      <center>{{ copyright }}</center>
+	      {% endif %}
+	      <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs using the MOOSEDocs theme</a>.</center>
+	    </footer>
+	  </div>
+	</div>
+      </div>
+    </div>
+    {%- for path in extra_javascript %}
+    
+    {%- endfor %}
+    <script src="{{ base_url }}/js/classie.js"></script>
+    <script src="{{ base_url }}/js/mlpushmenu.js"></script>
+    <script>
+      new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+    </script>
+    
+  </body>
+</html>
