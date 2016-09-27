@@ -1,17 +1,25 @@
-<div class="mp-level" data-level="2">
-  <h2>{{ nav_item.title }}</h2>
-  {% if not nav_item.children %}
-  <li>
-    <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
-  </li>
-  {% else %}
-    <ul>
-      <li class="icon icon-arrow-left">
-	<a tabindex="-1" href="">{{ nav_item.title }}</a>
-          {% for nav_item in nav_item.children %}
-            {% include "nav.html" %}
-          {% endfor %}
-      </li>
-    </ul>
-  {% endif %}
-</div>
+            <div class="mp-level">
+              <h2>{{site_name}}</h2>
+              <ul>
+                {% for nav_item in nav %}
+                {% if nav_item.title != "Home" %}
+                <li>
+                  <a class="icon icon-arrow-left" href="#">{{nav_item.title}}</a>
+                  <div class="mp-level">
+	            <h2>{{nav_item.title}}</h2>
+                    <a class="mp-back" href="#">back</a>
+	            <ul>
+                      {% if nav_item.children %}
+                      {% for subnav_item in nav_item.children %}
+                      {% include "nav-sub.html" %}
+                      {% endfor %}
+                      {% else %}
+                      <li><a href="{{nav_item.url}}">{{nav_item.title}}</a></li>
+                      {% endif %}
+	            </ul>
+	          </div>
+	        </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
